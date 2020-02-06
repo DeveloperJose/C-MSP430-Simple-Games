@@ -9,14 +9,14 @@ char top_s2_state_down;
 char top_s3_state_down;
 char top_s4_state_down;
 
-__interrupt(PORT1_VECTOR) Port_1(){
+void __interrupt_vec(PORT1_VECTOR) Port_1(){
   if (P1IFG & BOTTOM_SWITCHES) {
     P1IFG &= ~BOTTOM_SWITCHES;
     switch_interrupt_handler();
   }
 }
 
-__interrupt(PORT2_VECTOR) Port_2(){
+void __interrupt_vec(PORT2_VECTOR) Port_2(){
   if (P2IFG & TOP_SWITCHES) {
     P2IFG &= ~TOP_SWITCHES;
     switch_interrupt_handler();

@@ -19,7 +19,7 @@ unsigned short timer_elapsed(){
   return timer_current_time - timer_start_time;
 }
 
-__interrupt(WDT_VECTOR) WDT(){
+void __interrupt_vec(WDT_VECTOR) WDT(){
   timer_state_time++;
   timer_current_time++;
   rand_seed++;
